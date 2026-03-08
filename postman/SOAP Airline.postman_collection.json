@@ -1,0 +1,47 @@
+{
+  "info": {
+    "_postman_id": "c3efe6c5-9517-4760-a7e5-eab3a67dccec",
+    "name": "SOAP Airline",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "11087769"
+  },
+  "item": [
+    {
+      "name": "SearchFlights",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "test/xml; charset=utf-8",
+            "type": "text"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "\"http://api.example.com/air/booking\"",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ns1=\"http://example.com/air/booking\">\r\n  <SOAP-ENV:Body>\r\n    <ns1:SearchFlightsRequest>\r\n      <ns1:origin>CPH</ns1:origin>\r\n      <ns1:destination>MAD</ns1:destination>\r\n      <ns1:departureDate>2025-03-15</ns1:departureDate>\r\n      <ns1:returnDate>2025-03-22</ns1:returnDate>\r\n      <ns1:passengers>\r\n        <ns1:adultCount>1</ns1:adultCount>\r\n        <ns1:childCount>0</ns1:childCount>\r\n        <ns1:infantCount>0</ns1:infantCount>\r\n      </ns1:passengers>\r\n      <ns1:cabin>ECONOMY</ns1:cabin>\r\n    </ns1:SearchFlightsRequest>\r\n  </SOAP-ENV:Body>\r\n</SOAP-ENV:Envelope>",
+          "options": {
+            "raw": {
+              "language": "xml"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{BASE_URL}}/server.php",
+          "host": [
+            "{{BASE_URL}}"
+          ],
+          "path": [
+            "server.php"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
